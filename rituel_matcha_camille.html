@@ -3,554 +3,628 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rituel du thé matcha pour Camille</title>
-    <meta name="description" content="Guide interactif et poétique du rituel du thé matcha pour Camille. Célébration d'anniversaire avec ustensiles authentiques, timer de préparation et design responsive.">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Rituel Matcha Camille — Le thé comme moment pour soi</title>
+    <meta name="description" content="Un site dédié au rituel du matcha : philosophie, préparation, variantes et inspirations. Un moment pour ralentir et savourer.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @page {
-            size: A4;
-            margin: 2cm;
+        :root {
+            --vert-matcha: #4A5D23;
+            --vert-sombre: #2D3A1A;
+            --vert-clair: #6B7C32;
+            --creme: #F7F5F0;
+            --noir-doux: #1A1A1A;
+            --gris-brume: #D4D1C7;
+            --blanc-doux: #FEFEFE;
+            --beige-doux: #F0EDE5;
+            --transition: all 0.3s ease;
+            --shadow-soft: 0 4px 20px rgba(74, 93, 35, 0.1);
+            --shadow-medium: 0 8px 32px rgba(74, 93, 35, 0.15);
+            --shadow-strong: 0 12px 48px rgba(74, 93, 35, 0.2);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        :root {
-            --primary-color: #27ae60;
-            --secondary-color: #2c3e50;
-            --accent-color: #e8f5e8;
-            --text-color: #2c3e50;
-            --bg-color: #fefefe;
-            --card-bg: #f8f9fa;
-            --shadow: rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
-        }
-        
-        [data-theme="dark"] {
-            --primary-color: #4ade80;
-            --secondary-color: #f1f5f9;
-            --accent-color: #1e293b;
-            --text-color: #f1f5f9;
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --shadow: rgba(0,0,0,0.3);
-        }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background: var(--bg-color);
-            font-size: 11pt;
-            transition: var(--transition);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.7;
+            color: var(--noir-doux);
+            background: var(--blanc-doux);
+            font-size: 16px;
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 21cm;
-            margin: 0 auto;
-            padding: 0;
-            position: relative;
-        }
-        
-        .controls {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .control-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 4px 12px var(--shadow);
-        }
-        
-        .control-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--shadow);
-        }
-        
+
+        /* Header */
         .header {
-            text-align: center;
-            margin-bottom: 2cm;
-            border-bottom: 3px solid var(--primary-color);
-            padding: 2cm 1cm 1cm 1cm;
-            position: relative;
-            background: linear-gradient(135deg, 
-                rgba(39, 174, 96, 0.05) 0%, 
-                rgba(46, 204, 113, 0.08) 25%, 
-                rgba(39, 174, 96, 0.03) 50%, 
-                rgba(46, 204, 113, 0.06) 75%, 
-                rgba(39, 174, 96, 0.04) 100%);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(39, 174, 96, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(39, 174, 96, 0.1);
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="tea-leaves" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(39,174,96,0.03)"/><circle cx="5" cy="15" r="0.5" fill="rgba(46,204,113,0.02)"/><circle cx="15" cy="5" r="0.5" fill="rgba(39,174,96,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23tea-leaves)"/></svg>');
-            border-radius: 16px;
-            opacity: 0.3;
-            z-index: -1;
-        }
-        
-        .titre-principal {
-            font-family: 'Playfair Display', serif;
-            font-size: 24pt;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 0.5cm;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1), 0 0 8px rgba(39, 174, 96, 0.3);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .sous-titre {
-            font-size: 12pt;
-            color: var(--text-color);
-            font-style: italic;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-        }
-        
-        .hero-image {
-            width: 100%;
-            max-width: 300px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin: 1cm auto;
-            display: block;
-            box-shadow: 0 8px 32px var(--shadow);
-        }
-        
-        .section {
-            margin-bottom: 1.5cm;
-            page-break-inside: avoid;
-        }
-        
-        .section-titre {
-            font-family: 'Playfair Display', serif;
-            font-size: 14pt;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 0.5cm;
-            border-left: 4px solid var(--primary-color);
-            padding-left: 0.5cm;
-            cursor: pointer;
+            background: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gris-brume);
+            z-index: 1000;
             transition: var(--transition);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
         }
-        
-        .section-titre:hover {
-            transform: translateX(5px);
+
+        .header.scrolled {
+            box-shadow: var(--shadow-soft);
         }
-        
-        .section-toggle {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
-            align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 12pt;
-            margin-left: 1cm;
-        }
-        
-        .section-toggle:hover {
-            background: var(--secondary-color);
-            transform: scale(1.1);
-        }
-        
-        .section-content {
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-        
-        .section-content.collapsed {
-            max-height: 0;
-            opacity: 0;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .section-content.expanded {
-            max-height: 2000px;
-            opacity: 1;
-        }
-        
-        .contenu {
-            text-align: justify;
-            margin-bottom: 0.5cm;
-        }
-        
-        .ustensiles {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1cm;
-            margin: 0.5cm 0;
-        }
-        
-        .ustensile {
-            background: var(--card-bg);
-            padding: 0.8cm;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-color);
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .ustensile:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px var(--shadow);
-        }
-        
-        .ustensile-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 0.5cm;
-            transition: var(--transition);
-        }
-        
-        .ustensile:hover .ustensile-image {
-            transform: scale(1.05);
-        }
-        
-        .ustensile-nom {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 12pt;
-            margin-bottom: 0.3cm;
-        }
-        
-        .ustensile-desc {
-            font-size: 10pt;
-            color: var(--text-color);
-            opacity: 0.8;
-            line-height: 1.4;
-        }
-        
-        .ustensile-icon {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: var(--primary-color);
-            font-size: 16pt;
-            opacity: 0.3;
-        }
-        
-        .etapes {
-            counter-reset: etape-counter;
-        }
-        
-        .etape {
-            counter-increment: etape-counter;
-            margin-bottom: 0.5cm;
-            padding: 0.5cm;
-            background: #f8f9fa;
-            border-radius: 8px;
-            position: relative;
-        }
-        
-        .etape::before {
-            content: counter(etape-counter);
-            position: absolute;
-            left: 0.2cm;
-            top: 0.3cm;
-            background: transparent;
-            color: var(--primary-color);
-            width: 1.2cm;
-            height: 1.2cm;
-            border: 2px solid var(--primary-color);
-            border-radius: 4px;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 10pt;
-            font-family: 'Playfair Display', serif;
+            height: 70px;
         }
-        
-        .etape-nom {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 0.2cm;
-            margin-left: 1.5cm;
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--vert-matcha);
+            text-decoration: none;
+            transition: var(--transition);
         }
-        
-        .etape-desc {
-            margin-left: 1.5cm;
-            font-size: 10pt;
+
+        .logo:hover {
+            color: var(--vert-sombre);
         }
-        
-        .principes {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5cm;
-            margin: 0.5cm 0;
-        }
-        
-        .principe {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
-            padding: 0.5cm;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .principe-japonais {
-            font-size: 14pt;
-            font-weight: bold;
-            color: #27ae60;
-            margin-bottom: 0.2cm;
-        }
-        
-        .principe-signification {
-            font-size: 9pt;
-            color: #5d6d7e;
-        }
-        
-        .notion-speciale {
-            background: #e8f5e8;
-            padding: 0.5cm;
-            border-radius: 8px;
-            text-align: center;
-            margin: 0.5cm 0;
-            font-style: italic;
-            color: #27ae60;
-            font-weight: bold;
-        }
-        
-        .options {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.3cm;
-            margin: 0.5cm 0;
-        }
-        
-        .option {
-            background: #f8f9fa;
-            padding: 0.4cm;
-            border-radius: 6px;
-            border-left: 3px solid #27ae60;
-        }
-        
-        .option-nom {
-            font-weight: bold;
-            color: #27ae60;
-            font-size: 10pt;
-        }
-        
-        .option-desc {
-            font-size: 9pt;
-            color: #5d6d7e;
-            margin-top: 0.1cm;
-        }
-        
-        .cloture {
-            text-align: center;
-            font-style: italic;
-            color: #27ae60;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
-            padding: 1cm;
-            border-radius: 12px;
-            margin-top: 1cm;
-        }
-        
-        .decoration {
-            text-align: center;
-            margin: 0.5cm 0;
-            color: var(--primary-color);
-            font-size: 16pt;
-        }
-        
-        /* Page d'accueil */
-        .home-page {
+
+
+        /* Hero Section */
+        .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, 
-                rgba(39, 174, 96, 0.1) 0%, 
-                rgba(46, 204, 113, 0.15) 25%, 
-                rgba(39, 174, 96, 0.08) 50%, 
-                rgba(46, 204, 113, 0.12) 75%, 
-                rgba(39, 174, 96, 0.1) 100%);
+                rgba(74, 93, 35, 0.05) 0%, 
+                rgba(45, 58, 26, 0.08) 50%, 
+                rgba(107, 124, 50, 0.03) 100%);
             position: relative;
             overflow: hidden;
         }
-        
-        .home-page::before {
+
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="tea-pattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="rgba(39,174,96,0.05)"/><circle cx="5" cy="25" r="1" fill="rgba(46,204,113,0.03)"/><circle cx="25" cy="5" r="1" fill="rgba(39,174,96,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23tea-pattern)"/></svg>');
-            opacity: 0.4;
-            z-index: -1;
-        }
-        
-        .home-content {
-            text-align: center;
-            max-width: 800px;
-            padding: 2rem;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="tea-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.5" fill="rgba(74,93,35,0.08)"/><circle cx="10" cy="30" r="1" fill="rgba(45,58,26,0.05)"/><circle cx="30" cy="10" r="1" fill="rgba(107,124,50,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23tea-pattern)"/></svg>');
+            opacity: 0.6;
             z-index: 1;
         }
-        
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-headline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--vert-sombre);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        .hero-subheadline {
+            font-size: 1.3rem;
+            color: var(--noir-doux);
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.2s forwards;
+        }
+
+        /* Birthday Modal Styles */
+        .birthday-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(74, 93, 35, 0.05) 0%, 
+                rgba(45, 58, 26, 0.08) 50%, 
+                rgba(107, 124, 50, 0.03) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+        }
+
+        .birthday-modal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="modal-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.5" fill="rgba(74,93,35,0.08)"/><circle cx="10" cy="30" r="1" fill="rgba(45,58,26,0.05)"/><circle cx="30" cy="10" r="1" fill="rgba(107,124,50,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23modal-pattern)"/></svg>');
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .birthday-modal-content {
+            background: white;
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(74, 93, 35, 0.3);
+            position: relative;
+            z-index: 2;
+            animation: modalSlideIn 0.8s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .main-site {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .main-site.visible {
+            opacity: 1;
+        }
+
+        /* Birthday Celebration Styles */
         .birthday-celebration {
             margin-bottom: 3rem;
-            animation: fadeInUp 1s ease-out;
         }
-        
+
         .birthday-icon {
             font-size: 4rem;
             margin-bottom: 1rem;
             animation: bounce 2s infinite;
         }
-        
+
         .birthday-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 3rem;
-            font-weight: bold;
-            color: var(--primary-color);
+            font-weight: 700;
+            color: var(--vert-sombre);
             margin-bottom: 0.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
-        
+
         .birthday-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            color: var(--noir-doux);
+            margin-bottom: 1rem;
             opacity: 0.9;
-        }
-        
-        .birthday-date {
-            font-size: 1rem;
-            color: var(--primary-color);
             font-weight: 500;
-            opacity: 0.8;
-            text-align: center;
-            margin: 0.2rem 0;
         }
-        
-        .gift-presentation {
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 1s ease-out 0.3s both;
-            text-align: center;
-        }
-        
-        .gift-description {
+
+        .birthday-date {
             font-size: 1.1rem;
-            color: var(--text-color);
-            line-height: 1.6;
-            opacity: 0.9;
+            color: var(--vert-matcha);
+            font-weight: 600;
+            text-align: center;
+            margin: 0.3rem 0;
+        }
+
+        .birthday-creators {
+            font-size: 1rem;
+            color: var(--noir-doux);
+            opacity: 0.8;
+            margin-top: 1rem;
             font-style: italic;
         }
-        
+
         .matcha-intro {
             margin-bottom: 3rem;
-            animation: fadeInUp 1s ease-out 0.6s both;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
         }
-        
+
         .matcha-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
-        
+
         .matcha-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--primary-color);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            color: var(--vert-sombre);
             margin-bottom: 1rem;
+            font-weight: 600;
         }
-        
-        .matcha-description {
-            font-size: 1rem;
-            color: var(--text-color);
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-        
-        .start-journey-btn {
-            background: linear-gradient(135deg, var(--primary-color), #2ecc71);
-            color: white;
-            border: none;
+
+        .btn {
             padding: 1rem 2rem;
             border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 32px rgba(39, 174, 96, 0.3);
-            display: flex;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--vert-matcha);
+            color: white;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary:hover {
+            background: var(--vert-sombre);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--vert-matcha);
+            border: 2px solid var(--vert-matcha);
+        }
+
+        .btn-secondary:hover {
+            background: var(--vert-matcha);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
             margin: 0 auto;
-            animation: fadeInUp 1s ease-out 0.9s both;
+            padding: 0 2rem;
         }
-        
-        .start-journey-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(39, 174, 96, 0.4);
+
+        .section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--gris-brume);
         }
-        
-        .start-journey-btn:active {
-            transform: translateY(-1px);
+
+        .section:last-child {
+            border-bottom: none;
         }
-        
-        .btn-icon {
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--vert-sombre);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--noir-doux);
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid var(--gris-brume);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--vert-matcha);
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--vert-sombre);
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: var(--noir-doux);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Steps */
+        .steps {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            padding: 2rem;
+            background: var(--beige-doux);
+            border-radius: 16px;
+            transition: var(--transition);
+            margin-bottom: 1rem;
+        }
+
+        .step:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .step-number {
+            background: var(--vert-sombre);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
             font-size: 1.2rem;
-            transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
-        
-        .start-journey-btn:hover .btn-icon {
-            transform: translateX(5px);
+
+        .step-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            color: var(--vert-sombre);
+            margin-bottom: 0.5rem;
         }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .step-content p {
+            color: var(--noir-doux);
+            opacity: 0.8;
         }
-        
+
+        /* Quote */
+        .quote {
+            background: var(--vert-sombre);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(107, 124, 50, 0.1) 0%, 
+                rgba(74, 93, 35, 0.05) 100%);
+            z-index: 1;
+        }
+
+        .quote-text,
+        .quote-author {
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .quote-author {
+            opacity: 0.8;
+            font-size: 1rem;
+        }
+
+        /* Timer */
+        .timer-container {
+            background: linear-gradient(135deg, var(--vert-sombre) 0%, var(--vert-matcha) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timer-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="timer-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23timer-pattern)"/></svg>');
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .timer-container h3,
+        .timer-display,
+        .timer-controls {
+            position: relative;
+            z-index: 2;
+        }
+
+        .timer-display {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .timer-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .timer-btn:hover {
+            background: white;
+            color: var(--vert-sombre);
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border: 1px solid var(--gris-brume);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-item h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            color: var(--vert-sombre);
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item p {
+            color: var(--noir-doux);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--noir-doux);
+            opacity: 0.8;
+            margin-top: 3rem;
+        }
+
+
+        /* Footer */
+        .footer {
+            background: var(--beige-doux);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-cup {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: gentleFloat 3s ease-in-out infinite;
+        }
+
+        .footer-text {
+            color: var(--vert-sombre);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
@@ -562,805 +636,598 @@
                 transform: translateY(-5px);
             }
         }
-        
-        /* Timer Styles */
-        .timer-container {
-            background: linear-gradient(135deg, var(--primary-color), #2ecc71);
-            color: white;
-            padding: 1cm;
-            border-radius: 12px;
-            text-align: center;
-            margin: 1cm 0;
-            box-shadow: 0 8px 32px var(--shadow);
-        }
-        
-        .timer-display {
-            font-size: 24pt;
-            font-weight: bold;
-            margin: 0.5cm 0;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .timer-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1cm;
-            margin-top: 0.5cm;
-        }
-        
-        .timer-btn {
-            background: rgba(255,255,255,0.2);
-            border: 2px solid white;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: bold;
-        }
-        
-        .timer-btn:hover {
-            background: white;
-            color: var(--primary-color);
-        }
-        
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-        }
-        
-        .modal-content {
-            background: var(--bg-color);
-            margin: 5% auto;
-            padding: 2cm;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-            box-shadow: 0 20px 60px var(--shadow);
-        }
-        
-        .close {
-            color: var(--text-color);
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            position: absolute;
-            top: 20px;
-            right: 30px;
-        }
-        
-        .close:hover {
-            color: var(--primary-color);
-        }
-        
-        .modal-image {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin: 1cm 0;
-        }
-        
-        
-        /* Progress Bar */
-        .progress-container {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 0.5cm;
-            margin: 1cm 0;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: var(--accent-color);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), #2ecc71);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-        
-        /* Animation Classes */
-        .fade-in {
-            animation: fadeIn 0.6s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .gentle-glow {
-            animation: gentleGlow 3s ease-in-out infinite alternate;
-        }
-        
-        @keyframes gentleGlow {
-            0% { 
-                text-shadow: 1px 1px 2px var(--shadow), 0 0 10px rgba(39, 174, 96, 0.3);
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            100% { 
-                text-shadow: 1px 1px 2px var(--shadow), 0 0 20px rgba(39, 174, 96, 0.6);
-            }
-        }
-        
-        .fade-in-title {
-            animation: fadeInTitle 2s ease-out;
-        }
-        
-        @keyframes fadeInTitle {
-            0% { 
-                opacity: 0; 
-                transform: translateY(-30px);
-            }
-            100% { 
-                opacity: 1; 
+            to {
+                opacity: 1;
                 transform: translateY(0);
             }
         }
-        
-        /* Mobile Responsive Styles */
-        @media screen and (max-width: 768px) {
-            .home-content {
-                padding: 1rem;
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .birthday-modal-content {
+                padding: 3rem 2rem;
+                margin: 1rem;
             }
-            
+
             .birthday-title {
                 font-size: 2.2rem;
             }
-            
+
+            .birthday-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .birthday-date {
+                font-size: 1rem;
+            }
+
+            .matcha-title {
+                font-size: 1.6rem;
+            }
+
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+
+            .hero-subheadline {
+                font-size: 1.1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+
+            /* Fix for preparation steps on mobile */
+            .step {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .step:hover {
+                transform: translateY(-5px);
+            }
+
+            .step-number {
+                align-self: center;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .step-content h3 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .step-content p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .timer-container {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .timer-display {
+                font-size: 2.5rem;
+            }
+
+            .timer-controls {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .timer-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .main-content {
+                padding: 0 1rem;
+            }
+
+            .birthday-modal-content {
+                padding: 2rem 1.5rem;
+                margin: 0.5rem;
+            }
+
+            .birthday-title {
+                font-size: 1.8rem;
+            }
+
             .birthday-subtitle {
                 font-size: 1rem;
             }
-            
-            .gift-title {
-                font-size: 1.6rem;
-            }
-            
-            .gift-description {
-                font-size: 1rem;
-            }
-            
+
             .matcha-title {
                 font-size: 1.4rem;
             }
-            
-            .matcha-description {
+
+            .hero-headline {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .step {
+                padding: 1.2rem;
+                gap: 0.8rem;
+            }
+
+            .step-number {
+                width: 35px;
+                height: 35px;
                 font-size: 0.9rem;
             }
-            
-            .start-journey-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-            
-            /* Contrôles mobiles - position verticale */
-            .controls {
-                top: 20px;
-                right: 20px;
-                flex-direction: column;
-                gap: 8px;
-                z-index: 1000;
-            }
-            
-            .control-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 14px;
-            }
-            .container {
-                max-width: 100%;
-                padding: 0 1rem;
-            }
-            
-            .controls {
-                top: 10px;
-                right: 10px;
-                flex-wrap: wrap;
-                gap: 5px;
-            }
-            
-            .control-btn {
-                padding: 8px 12px;
-                font-size: 12px;
-            }
-            
-            .header {
-                padding: 1.5rem 1rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .titre-principal {
-                font-size: 18pt;
-                line-height: 1.3;
-            }
-            
-            .sous-titre {
-                font-size: 11pt;
-            }
-            
-            .section {
-                margin-bottom: 1rem;
-            }
-            
-            .section-titre {
-                font-size: 12pt;
-                padding: 0.5rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-            
-            .section-toggle {
-                align-self: flex-end;
-                width: 25px;
-                height: 25px;
-                font-size: 10pt;
-                margin-left: 0;
-            }
-            
-            .ustensiles {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            
-            .ustensile {
-                padding: 0.6rem;
-            }
-            
-            .ustensile-image {
-                height: 150px;
-            }
-            
-            .etape {
-                padding: 0.8rem;
-                margin-bottom: 0.8rem;
-            }
-            
-            .etape::before {
-                left: 0.1rem;
-                top: 0.2rem;
-                width: 1rem;
-                height: 1rem;
-                font-size: 9pt;
-            }
-            
-            .etape-nom {
-                margin-left: 1.2rem;
-                font-size: 11pt;
-            }
-            
-            .etape-desc {
-                margin-left: 1.2rem;
-                font-size: 9pt;
-            }
-            
-            .principes {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            
-            .principe {
-                padding: 0.6rem;
-            }
-            
-            .principe-japonais {
-                font-size: 12pt;
-            }
-            
-            .principe-signification {
-                font-size: 8pt;
-            }
-            
-            .timer-container {
-                padding: 0.8rem;
-                margin: 0.8rem 0;
-            }
-            
-            .timer-display {
-                font-size: 18pt;
-            }
-            
-            .timer-controls {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .timer-btn {
-                padding: 8px 16px;
-                font-size: 10pt;
-            }
-            
-            .modal-content {
-                margin: 10% auto;
-                padding: 1rem;
-                width: 95%;
-            }
-            
-        }
-        
-        @media screen and (max-width: 480px) {
-            /* Contrôles pour très petits écrans */
-            .controls {
-                top: 15px;
-                right: 15px;
-                gap: 6px;
-            }
-            
-            .control-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 12px;
-            }
-            
-            .titre-principal {
-                font-size: 16pt;
-            }
-            
-            .section-titre {
-                font-size: 11pt;
-            }
-            
-            .ustensile-nom {
-                font-size: 10pt;
-            }
-            
-            .ustensile-desc {
-                font-size: 8pt;
-            }
-            
-            .etape-nom {
-                font-size: 10pt;
-            }
-            
-            .etape-desc {
-                font-size: 8pt;
-            }
-            
-            .timer-display {
-                font-size: 16pt;
-            }
-        }
 
-        @media print {
-            body {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .step-content h3 {
+                font-size: 1.1rem;
             }
-            
-            .section {
-                page-break-inside: avoid;
+
+            .step-content p {
+                font-size: 0.9rem;
             }
-            
-            .controls {
-                display: none;
-            }
-            
+
             .timer-container {
-                display: none;
+                padding: 1.2rem;
+            }
+
+            .timer-display {
+                font-size: 2rem;
+            }
+
+            .timer-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="controls">
-        <button class="control-btn" onclick="toggleTheme()" title="Changer le thème">
-            <i class="fas fa-moon"></i>
-        </button>
-        <button class="control-btn" onclick="startTimer()" title="Démarrer le timer">
-            <i class="fas fa-play"></i>
-        </button>
-        <button class="control-btn" onclick="toggleAllSections()" title="Afficher/Masquer toutes les sections">
-            <i class="fas fa-eye"></i>
-        </button>
-    </div>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Rituel Matcha de Camille</a>
+        </nav>
+    </header>
 
-    <!-- Page d'accueil -->
-    <div id="homePage" class="home-page">
-        <div class="home-content">
+    <!-- Birthday Popup Modal -->
+    <div id="birthdayModal" class="birthday-modal">
+        <div class="birthday-modal-content">
             <div class="birthday-celebration">
                 <div class="birthday-icon">🎂</div>
                 <h1 class="birthday-title">Joyeux Anniversaire Camille !</h1>
                 <p class="birthday-subtitle">24 ans de bonheur et de sérénité</p>
                 <div class="birthday-date">14 septembre 2001</div>
                 <div class="birthday-date">2025</div>
-            </div>
-            
-            <div class="gift-presentation">
-                <p class="gift-description">
-                    Créé par <strong>Lily</strong> et <strong>Bradley</strong>
-                </p>
+                <p class="birthday-creators">Créé par <strong>Lily</strong> et <strong>Bradley</strong></p>
             </div>
             
             <div class="matcha-intro">
                 <div class="matcha-icon">🍵</div>
-                <h3 class="matcha-title">Découvre l'art du matcha</h3>
-                <p class="matcha-description">
-                    Plonge dans l'univers zen du thé matcha avec tes ustensiles authentiques.<br>
-                    Chaque geste devient une méditation, chaque gorgée une célébration.
-                </p>
+                <h2 class="matcha-title">Découvre l'art du matcha</h2>
             </div>
             
-            <button class="start-journey-btn" onclick="startJourney()">
-                <span class="btn-text">Commencer le voyage</span>
-                <span class="btn-icon">→</span>
-            </button>
+            <div class="hero-cta">
+                <button onclick="startJourney()" class="btn btn-primary">
+                    <i class="fas fa-leaf"></i>
+                    Commencer
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Page principale -->
-    <div id="mainPage" class="container" style="display: none;">
-        <div class="header">
-            <h1 class="titre-principal">Rituel du thé matcha pour Camille</h1>
-            <p class="sous-titre">Une cérémonie poétique entre tradition et modernité</p>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-titre" onclick="toggleSection(this)">
-                Introduction poétique
-                <button class="section-toggle" onclick="event.stopPropagation(); toggleSection(this.parentElement)">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </h2>
-            <div class="section-content expanded">
-                <p class="contenu">Camille, lorsque tu ouvres ta boîte de matcha, tu n'ouvres pas seulement une poudre verte : tu soulèves un fragment d'histoire, de nature et de philosophie. Chaque grain finement broyé raconte le voyage du thé : des monastères chinois de la dynastie Song, où les moines battaient déjà le thé en mousse, jusqu'à l'arrivée au Japon grâce au moine Eisai au XIIᵉ siècle. Puis, au XVIᵉ siècle, le maître de thé Sen no Rikyū transforma cette pratique en art total : le chanoyu, la voie du thé. Ce bol de matcha n'est pas seulement une boisson : il est une rencontre entre toi, la plante, le geste, et le temps.</p>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-titre" onclick="toggleSection(this)">
-                Préparer l'espace
-                <button class="section-toggle" onclick="event.stopPropagation(); toggleSection(this.parentElement)">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </h2>
-            <div class="section-content expanded">
-                <p class="contenu">Installe-toi dans un lieu épuré. Une table simple, une bougie, peut-être une fleur unique dans un petit vase. Chaque élément doit respirer la sobriété. Le thé n'aime pas la précipitation : il aime l'espace où le silence peut s'entendre.</p>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-titre" onclick="toggleSection(this)">
-                Présentation des ustensiles
-                <button class="section-toggle" onclick="event.stopPropagation(); toggleSection(this.parentElement)">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </h2>
-            <div class="section-content expanded">
-                <div class="ustensiles">
-                <div class="ustensile" onclick="openModal('chawan')">
-                    <i class="fas fa-coffee ustensile-icon"></i>
-                    <img src="Chawan.png" alt="Chawan" class="ustensile-image">
-                    <div class="ustensile-nom">Chawan 茶碗</div>
-                    <div class="ustensile-desc">Bol à thé à glaçure craquelée, incarnation du wabi-sabi.</div>
-                </div>
-                <div class="ustensile" onclick="openModal('chashaku')">
-                    <i class="fas fa-utensils ustensile-icon"></i>
-                    <img src="Chashaku.png" alt="Chashaku" class="ustensile-image">
-                    <div class="ustensile-nom">Chashaku 茶杓</div>
-                    <div class="ustensile-desc">Cuillère en bambou courbe, symbole de précision et d'humilité.</div>
-                </div>
-                <div class="ustensile" onclick="openModal('cuillere')">
-                    <i class="fas fa-spoon ustensile-icon"></i>
-                    <img src="cuillère moderne.png" alt="Cuillère moderne" class="ustensile-image">
-                    <div class="ustensile-nom">Cuillère en bois moderne</div>
-                    <div class="ustensile-desc">Pont entre tradition et quotidien, idéale pour lattes créatifs.</div>
-                </div>
-                <div class="ustensile" onclick="openModal('chasen')">
-                    <i class="fas fa-magic ustensile-icon"></i>
-                    <img src="Chasen.png" alt="Chasen" class="ustensile-image">
-                    <div class="ustensile-nom">Chasen 茶筅 (百本立)</div>
-                    <div class="ustensile-desc">Fouet en bambou à 100 brins, qui crée la mousse fine du matcha.</div>
-                </div>
-                <div class="ustensile" onclick="openModal('kusenaoshi')">
-                    <i class="fas fa-pause-circle ustensile-icon"></i>
-                    <img src="Kusenaoshi.png" alt="Kusenaoshi" class="ustensile-image">
-                    <div class="ustensile-nom">Kusenaoshi</div>
-                    <div class="ustensile-desc">Support qui garde la forme du chasen, symbole de repos et d'équilibre.</div>
-                </div>
-                <div class="ustensile" onclick="openModal('furui')">
-                    <i class="fas fa-filter ustensile-icon"></i>
-                    <img src="Furui.png" alt="Furui" class="ustensile-image">
-                    <div class="ustensile-nom">Furui</div>
-                    <div class="ustensile-desc">Tamis à matcha, héritage zen pour purifier le thé et l'esprit.</div>
-                </div>
+    <!-- Main Site Content (Hidden initially) -->
+    <div id="mainSite" class="main-site" style="display: none;">
+        <!-- Hero Section -->
+        <section class="hero" id="accueil">
+            <div class="hero-content">
+                <h1 class="hero-headline">Un rituel pour toi, Camille.</h1>
+                <p class="hero-subheadline">Chaque tasse de matcha est une pause — une respiration profonde dans le tumulte du jour.</p>
+                <div class="hero-cta">
+                    <a href="#rituel" class="btn btn-primary">
+                        <i class="fas fa-leaf"></i>
+                        Découvrir le rituel
+                    </a>
+                    <a href="#preparation" class="btn btn-secondary">
+                        <i class="fas fa-coffee"></i>
+                        Préparer son matcha
+                    </a>
                 </div>
             </div>
-        </div>
-        
-        <!-- Timer Section -->
-        <div class="timer-container" id="timerSection" style="display: none;">
-            <h3>⏰ Timer de préparation</h3>
-            <div class="timer-display" id="timerDisplay">03:00</div>
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-            </div>
-            <div class="timer-controls">
-                <button class="timer-btn" onclick="startCountdown()">
-                    <i class="fas fa-play"></i> Démarrer
-                </button>
-                <button class="timer-btn" onclick="pauseTimer()">
-                    <i class="fas fa-pause"></i> Pause
-                </button>
-                <button class="timer-btn" onclick="resetTimer()">
-                    <i class="fas fa-redo"></i> Reset
-                </button>
-            </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2 class="section-titre" onclick="toggleSection(this)">
-                Étapes de préparation
-                <button class="section-toggle" onclick="event.stopPropagation(); toggleSection(this.parentElement)">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </h2>
-            <div class="section-content expanded">
-                <div class="etapes">
-                    <div class="etape">
-                        <div class="etape-nom">Tamisage</div>
-                        <div class="etape-desc">Passe le matcha au furui pour l'aérer et le purifier.</div>
+    <!-- Introduction -->
+    <section class="section">
+        <div class="main-content">
+            <div class="section-header">
+                <h2 class="section-title">Une invitation à ralentir</h2>
+                <p class="section-subtitle">Ouvre la boîte, sens la poudre vibrante, laisse-toi porter par l'histoire qu'elle porte</p>
+            </div>
+            <div class="about-text">
+                <p>Plantations ombragées, gestes appris, temps consacré au silence et à la beauté. Ce site n'est pas seulement une célébration du thé : c'est une invitation. À ralentir. À goûter. À honorer le présent.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🌸</div>
+                    <h3 class="card-title">Simplicité</h3>
+                    <p class="card-text">La beauté du geste essentiel.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧘</div>
+                    <h3 class="card-title">Présence</h3>
+                    <p class="card-text">Être là, pleinement, bol en mains.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚖️</div>
+                    <h3 class="card-title">Harmonie</h3>
+                    <p class="card-text">Tradition et modernité en équilibre.</p>
+                </div>
+            </div>
+            <div class="quote">
+                <p class="quote-text">« Le matcha n'est pas là pour être consommé à la hâte : il est là pour être vécu. »</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Le Rituel -->
+    <section class="section" id="rituel">
+        <div class="main-content">
+            <div class="section-header">
+                <h2 class="section-title">Le Rituel</h2>
+                <p class="section-subtitle">Le rituel du matcha relie la main, la matière et le moment</p>
+            </div>
+            <div class="about-text">
+                <p>Inspiré des temples d'Asie et du chanoyu, il nous rappelle que la douceur du temps se cultive. Ici, chaque geste compte et simplifie la pensée.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">和</div>
+                    <h3 class="card-title">Wa — Harmonie</h3>
+                    <p class="card-text">Créer un espace apaisé pour accueillir la tasse.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">敬</div>
+                    <h3 class="card-title">Kei — Respect</h3>
+                    <p class="card-text">Honorer la plante, l'eau, les ustensiles, soi.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">清</div>
+                    <h3 class="card-title">Sei — Pureté</h3>
+                    <p class="card-text">Clarifier l'esprit par la clarté des gestes.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">寂</div>
+                    <h3 class="card-title">Jaku — Sérénité</h3>
+                    <p class="card-text">Laisser le silence s'installer après la dernière gorgée.</p>
+                </div>
+            </div>
+            <div class="card" style="background: var(--creme); text-align: center; margin-top: 2rem;">
+                <h3 class="card-title">Préparer l'espace</h3>
+                <p class="card-text">Une table claire, une lumière douce, peut-être une fleur unique. Que rien ne t'agite.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Préparation -->
+    <section class="section" id="preparation">
+        <div class="main-content">
+            <div class="section-header">
+                <h2 class="section-title">Préparation</h2>
+                <p class="section-subtitle">Cinq étapes pour transformer la poudre en moment de grâce</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Tamisage</h3>
+                        <p>Aérer la poudre pour une texture lisse, sans grumeaux.</p>
                     </div>
-                    <div class="etape">
-                        <div class="etape-nom">Dosage</div>
-                        <div class="etape-desc">Prends deux mesures de matcha avec le chashaku, symbole de respect.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Dosage</h3>
+                        <p>1 à 2 chashaku (≈1,5–3 g) selon l'intensité souhaitée.</p>
                     </div>
-                    <div class="etape">
-                        <div class="etape-nom">Ajout de l'eau</div>
-                        <div class="etape-desc">Ajoute de l'eau chaude à 80°C, créant l'harmonie entre thé et élément liquide.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Eau</h3>
+                        <p>≈70–80°C : jamais bouillante, pour préserver douceur et umami.</p>
                     </div>
-                    <div class="etape">
-                        <div class="etape-nom">Fouettage</div>
-                        <div class="etape-desc">Fouette en forme de M ou W avec le chasen 百本立 jusqu'à obtenir une mousse onctueuse.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Fouet</h3>
+                        <p>Intégrer doucement, puis fouetter en 'M' jusqu'à obtenir une mousse fine.</p>
                     </div>
-                    <div class="etape">
-                        <div class="etape-nom">Dégustation</div>
-                        <div class="etape-desc">Tourne le bol avant de boire en trois gorgées silencieuses, atteignant sérénité.</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Dégustation</h3>
+                        <p>Respirer, puis boire en 2-3 gorgées, l'esprit posé.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timer -->
+            <div class="timer-container">
+                <h3>⏰ Timer de préparation</h3>
+                <div class="timer-display" id="timerDisplay">03:00</div>
+                <div class="timer-controls">
+                    <button class="timer-btn" onclick="startCountdown()">
+                        <i class="fas fa-play"></i> Démarrer
+                    </button>
+                    <button class="timer-btn" onclick="pauseTimer()">
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button class="timer-btn" onclick="resetTimer()">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+            <div class="cards-grid" style="margin-top: 3rem;">
+                <div class="card">
+                    <div class="card-icon">🍵</div>
+                    <h3 class="card-title">Chawan (bol)</h3>
+                    <p class="card-text">Creux, stable, agréable en main.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🥄</div>
+                    <h3 class="card-title">Chasen (fouet)</h3>
+                    <p class="card-text">Bambou ; rincer et sécher tête en bas.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🥢</div>
+                    <h3 class="card-title">Chashaku (cuillère)</h3>
+                    <p class="card-text">Doser avec régularité.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3 class="card-title">Tamis / Furui</h3>
+                    <p class="card-text">Aérer la poudre avant le fouet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variantes -->
+    <section class="section" id="variantes">
+        <div class="main-content">
+            <div class="section-header">
+                <h2 class="section-title">Variantes & Inspirations</h2>
+                <p class="section-subtitle">Quand la tradition rencontre la créativité</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3 class="card-title">Matcha Latte (doux)</h3>
+                    <p class="card-text"><strong>Ingrédients :</strong> 1–2 g de matcha, 20–30 ml d'eau chaude (70–80°C), 150–200 ml de lait ou boisson végétale</p>
+                    <p class="card-text"><strong>Préparation :</strong> Délayer le matcha avec l'eau jusqu'à lisse. Chauffer le lait, mousser si souhaité. Verser sur le matcha, sucrer légèrement (optionnel).</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Matcha glacé</h3>
+                    <p class="card-text"><strong>Ingrédients :</strong> 1–2 g de matcha, 180–220 ml d'eau fraîche, Glaçons</p>
+                    <p class="card-text"><strong>Préparation :</strong> Shaker : matcha + eau + glaçons jusqu'à homogène. Servir immédiatement.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Créations sucrées</h3>
+                    <p class="card-text">Tiramisu au matcha, Cookies marbrés matcha, Granola matcha–sésame</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galerie -->
+    <section class="section" id="galerie">
+        <div class="main-content">
+            <div class="section-header">
+                <h2 class="section-title">Galerie</h2>
+                <p class="section-subtitle">Gestes, matières, mousses et lumières — le matcha comme expérience</p>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="Chawan.png" alt="Chawan - Bol à thé traditionnel">
+                    <h3>Chawan 茶碗</h3>
+                    <p>Le chawan est l'âme de la cérémonie du thé. Sa forme imparfaite, ses craquelures délicates et sa texture rugueuse incarnent l'esthétique wabi-sabi japonaise. Chaque bol raconte une histoire unique, façonnée par les mains d'un artisan et patinée par le temps.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Chasen.png" alt="Chasen - Fouet en bambou">
+                    <h3>Chasen 茶筅</h3>
+                    <p>Le chasen est le cœur technique de la préparation. Ses 100 brins de bambou fin, taillés à la main, créent la mousse onctueuse caractéristique du matcha. Chaque mouvement en forme de M ou W transforme la préparation en méditation active.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Chashaku.png" alt="Chashaku - Cuillère en bambou">
+                    <h3>Chashaku 茶杓</h3>
+                    <p>Le chashaku, sculpté dans un seul morceau de bambou, symbolise la simplicité et l'humilité. Sa courbure délicate permet de mesurer avec précision la poudre de matcha. Chaque maître de thé possède son propre chashaku, souvent transmis de génération en génération.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Furui.png" alt="Furui - Tamis à matcha">
+                    <h3>Furui</h3>
+                    <p>Le furui transforme la poudre de matcha en nuage aérien, éliminant les grumeaux et révélant la texture soyeuse du thé. Ce geste de tamisage, hérité des pratiques zen, purifie non seulement le matcha mais aussi l'esprit de celui qui l'accomplit.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Kusenaoshi.png" alt="Kusenaoshi - Support pour chasen">
+                    <h3>Kusenaoshi</h3>
+                    <p>Le kusenaoshi protège la forme délicate du chasen entre les utilisations. Ce petit support en bambou ou en céramique symbolise l'importance du repos et de la préservation. Il nous rappelle que même les outils les plus précieux ont besoin de moments de pause.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="cuillère moderne.png" alt="Cuillère moderne en bois">
+                    <h3>Cuillère moderne</h3>
+                    <p>Cette cuillère en bois moderne représente l'adaptation de l'art du thé à notre époque. Tout en conservant l'esprit de respect et de simplicité des outils traditionnels, elle permet une approche plus accessible du rituel matcha pour les créations contemporaines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section class="section" id="a-propos">
+        <div class="main-content">
+            <div class="section-header">
+                <h2 class="section-title">À propos</h2>
+                <p class="section-subtitle">Une histoire personnelle, une invitation partagée</p>
+            </div>
+            <div class="about-text">
+                <p>Je m'appelle Camille. J'ai découvert le matcha comme on découvre une respiration : simple et essentielle. Ce site est une invitation à partager un rituel qui m'aide à ralentir, à écouter, à être là — bol en mains.</p>
+                <div class="cards-grid" style="margin-top: 2rem;">
+                    <div class="card">
+                        <h3 class="card-title">Sincérité</h3>
+                        <p class="card-text">Un ton vrai, rien d'inutile.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Transmission</h3>
+                        <p class="card-text">Rendre le rituel accessible, sans le dénaturer.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Respect</h3>
+                        <p class="card-text">Des ustensiles, des producteurs, du temps.</p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="section">
-            <h2 class="section-titre" onclick="toggleSection(this)">
-                Philosophie associée
-                <button class="section-toggle" onclick="event.stopPropagation(); toggleSection(this.parentElement)">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </h2>
-            <div class="section-content expanded">
-                <div class="principes">
-                    <div class="principe">
-                        <div class="principe-japonais">Wa 和</div>
-                        <div class="principe-signification">Harmonie entre toi, le thé et le monde.</div>
-                    </div>
-                    <div class="principe">
-                        <div class="principe-japonais">Kei 敬</div>
-                        <div class="principe-signification">Respect de la nature, des ustensiles et de toi-même.</div>
-                    </div>
-                    <div class="principe">
-                        <div class="principe-japonais">Sei 清</div>
-                        <div class="principe-signification">Pureté du geste et de l'esprit.</div>
-                    </div>
-                    <div class="principe">
-                        <div class="principe-japonais">Jaku 寂</div>
-                        <div class="principe-signification">Sérénité profonde au bout du silence.</div>
-                    </div>
-                </div>
-                <div class="notion-speciale">Ichigo ichie – une rencontre unique qui ne se reproduira jamais.</div>
+    </section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-cup">🍵</div>
+                <p class="footer-text">Rituel Matcha Camille</p>
             </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-titre" onclick="toggleSection(this)">
-                Variantes modernes
-                <button class="section-toggle" onclick="event.stopPropagation(); toggleSection(this.parentElement)">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </h2>
-            <div class="section-content expanded">
-                <div class="options">
-                    <div class="option">
-                        <div class="option-nom">Matcha latte</div>
-                        <div class="option-desc">Ajoute du lait végétal (avoine, amande, soja) au thé mousseux.</div>
-                    </div>
-                    <div class="option">
-                        <div class="option-nom">Koicha 濃茶</div>
-                        <div class="option-desc">Préparation dense avec plus de matcha et moins d'eau, réservée aux connaisseurs.</div>
-                    </div>
-                    <div class="option">
-                        <div class="option-nom">Créations libres</div>
-                        <div class="option-desc">Smoothies, desserts, cocktails à base de matcha, prolongement créatif de l'esprit du thé.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2 class="section-titre" onclick="toggleSection(this)">
-                Clôture
-                <button class="section-toggle" onclick="event.stopPropagation(); toggleSection(this.parentElement)">
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-            </h2>
-            <div class="section-content expanded">
-                <div class="cloture">
-                    <p>Prends un instant de gratitude pour la plante, l'eau et le geste. Ce rituel relie le passé millénaire à ta vie moderne. Chaque tasse est une célébration, un poème unique.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="decoration">🍵</div>
+        </footer>
     </div>
-
-    <!-- Modals for ustensiles -->
-    <div id="modalUstensile" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Détails de l'ustensile</h2>
-            <img id="modalImage" src="" alt="" class="modal-image">
-            <p id="modalDescription"></p>
-        </div>
-    </div>
-
 
     <script>
-        // Données personnalisées
-        const DATA = {
-            recipient: "Camille",
-            from: ["Lily", "Bradley"],
-            birthDate: "2001-09-14",
-            todayDate: new Date().toISOString().split('T')[0] // Date du jour
-        };
-        
-        // Calculer l'âge
-        function calculateAge(birthDate, todayDate) {
-            const birth = new Date(birthDate);
-            const today = new Date(todayDate);
-            let age = today.getFullYear() - birth.getFullYear();
-            const monthDiff = today.getMonth() - birth.getMonth();
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-                age--;
-            }
-            return age;
-        }
-        
-        // Mettre à jour les données de la page d'accueil
-        function updateHomePageData() {
-            const age = calculateAge(DATA.birthDate, DATA.todayDate);
-            const birthdayDate = new Date(DATA.birthDate).toLocaleDateString('fr-FR', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
-            });
-            const todayYear = new Date(DATA.todayDate).getFullYear();
-            
-            // Mettre à jour le titre
-            document.querySelector('.birthday-title').textContent = `Joyeux Anniversaire ${DATA.recipient} !`;
-            document.querySelector('.birthday-subtitle').textContent = `${age} ans de bonheur et de sérénité`;
-            
-            // Mettre à jour les dates (séparées)
-            const dateElements = document.querySelectorAll('.birthday-date');
-            dateElements[0].textContent = birthdayDate;
-            dateElements[1].textContent = todayYear;
-            
-            // Mettre à jour la description du cadeau (simplifiée)
-            document.querySelector('.gift-description').innerHTML = `
-                Créé par <strong>${DATA.from[0]}</strong> et <strong>${DATA.from[1]}</strong>
-            `;
-        }
-        
-        // Navigation entre les pages
+        // Birthday modal and site transition
         function startJourney() {
-            document.getElementById('homePage').style.display = 'none';
-            document.getElementById('mainPage').style.display = 'block';
-            document.querySelector('.controls').style.display = 'flex';
+            const modal = document.getElementById('birthdayModal');
+            const mainSite = document.getElementById('mainSite');
             
-            // Ajouter une animation de transition
-            document.getElementById('mainPage').style.opacity = '0';
-            document.getElementById('mainPage').style.transform = 'translateY(20px)';
+            // Hide modal with fade out
+            modal.style.opacity = '0';
+            modal.style.transform = 'scale(0.8) translateY(50px)';
             
             setTimeout(() => {
-                document.getElementById('mainPage').style.transition = 'all 0.6s ease';
-                document.getElementById('mainPage').style.opacity = '1';
-                document.getElementById('mainPage').style.transform = 'translateY(0)';
-            }, 100);
+                modal.style.display = 'none';
+                mainSite.style.display = 'block';
+                
+                // Show main site with fade in
+                setTimeout(() => {
+                    mainSite.classList.add('visible');
+                }, 100);
+            }, 500);
         }
-        
-        // Section toggle management
-        let allSectionsExpanded = true;
 
-        function toggleSection(sectionTitle) {
-            const section = sectionTitle.parentElement;
-            const content = section.querySelector('.section-content');
-            const toggle = section.querySelector('.section-toggle i');
-            
-            if (content.classList.contains('expanded')) {
-                content.classList.remove('expanded');
-                content.classList.add('collapsed');
-                toggle.className = 'fas fa-chevron-right';
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
             } else {
-                content.classList.remove('collapsed');
-                content.classList.add('expanded');
-                toggle.className = 'fas fa-chevron-down';
+                header.classList.remove('scrolled');
             }
-        }
+        });
 
-        function toggleAllSections() {
-            const sections = document.querySelectorAll('.section-content');
-            const toggles = document.querySelectorAll('.section-toggle i');
-            const toggleAllBtn = document.querySelectorAll('.control-btn')[2].querySelector('i');
-            
-            if (allSectionsExpanded) {
-                // Collapse all sections
-                sections.forEach(section => {
-                    section.classList.remove('expanded');
-                    section.classList.add('collapsed');
-                });
-                toggles.forEach(toggle => {
-                    toggle.className = 'fas fa-chevron-right';
-                });
-                toggleAllBtn.className = 'fas fa-eye-slash';
-                allSectionsExpanded = false;
-            } else {
-                // Expand all sections
-                sections.forEach(section => {
-                    section.classList.remove('collapsed');
-                    section.classList.add('expanded');
-                });
-                toggles.forEach(toggle => {
-                    toggle.className = 'fas fa-chevron-down';
-                });
-                toggleAllBtn.className = 'fas fa-eye';
-                allSectionsExpanded = true;
-            }
-        }
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-        // Theme management
-        let currentTheme = 'light';
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.querySelector('.control-btn i');
-            
-            if (currentTheme === 'light') {
-                body.setAttribute('data-theme', 'dark');
-                themeIcon.className = 'fas fa-sun';
-                currentTheme = 'dark';
-            } else {
-                body.removeAttribute('data-theme');
-                themeIcon.className = 'fas fa-moon';
-                currentTheme = 'light';
-            }
-        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-        // Timer management
+        // Observe all sections and cards
+        document.querySelectorAll('.section, .card, .step').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        // Timer functionality
         let timerInterval;
         let currentTime = 180; // 3 minutes in seconds
         let totalTime = 180;
         let isRunning = false;
-
-        function startTimer() {
-            const timerSection = document.getElementById('timerSection');
-            timerSection.style.display = 'block';
-            timerSection.scrollIntoView({ behavior: 'smooth' });
-        }
 
         function startCountdown() {
             if (!isRunning) {
@@ -1368,7 +1235,6 @@
                 timerInterval = setInterval(() => {
                     currentTime--;
                     updateTimer();
-                    updateProgress();
                     
                     if (currentTime <= 0) {
                         clearInterval(timerInterval);
@@ -1392,7 +1258,6 @@
             isRunning = false;
             currentTime = totalTime;
             updateTimer();
-            updateProgress();
         }
 
         function updateTimer() {
@@ -1402,115 +1267,42 @@
             document.getElementById('timerDisplay').textContent = display;
         }
 
-        function updateProgress() {
-            const progressPercentage = ((totalTime - currentTime) / totalTime) * 100;
-            document.getElementById('progressFill').style.width = progressPercentage + '%';
-        }
-
-        // Modal management
-        const ustensileData = {
-            chawan: {
-                title: "Chawan 茶碗 - Le bol à thé",
-                image: "Chawan.png",
-                description: "Le chawan est l'âme de la cérémonie du thé. Sa forme imparfaite, ses craquelures délicates et sa texture rugueuse incarnent l'esthétique wabi-sabi japonaise. Chaque bol raconte une histoire unique, façonnée par les mains d'un artisan et patinée par le temps. Lors de la dégustation, on tourne le bol pour admirer ses détails avant de boire, créant un dialogue intime entre l'utilisateur et l'objet."
-            },
-            chashaku: {
-                title: "Chashaku 茶杓 - La cuillère en bambou",
-                image: "Chashaku.png",
-                description: "Le chashaku, sculpté dans un seul morceau de bambou, symbolise la simplicité et l'humilité. Sa courbure délicate permet de mesurer avec précision la poudre de matcha. Chaque maître de thé possède son propre chashaku, souvent transmis de génération en génération. Son utilisation demande un geste lent et mesuré, invitant à la méditation dès les premiers instants de la préparation."
-            },
-            cuillere: {
-                title: "Cuillère moderne - Pont entre traditions",
-                image: "cuillère moderne.png",
-                description: "Cette cuillère en bois moderne représente l'adaptation de l'art du thé à notre époque. Tout en conservant l'esprit de respect et de simplicité des outils traditionnels, elle permet une approche plus accessible du rituel matcha. Parfaite pour les créations contemporaines comme les matcha lattes, elle incarne la continuité de la tradition dans un monde en évolution."
-            },
-            chasen: {
-                title: "Chasen 茶筅 - Le fouet à 100 brins",
-                image: "Chasen.png",
-                description: "Le chasen est le cœur technique de la préparation. Ses 100 brins de bambou fin, taillés à la main, créent la mousse onctueuse caractéristique du matcha. Chaque mouvement en forme de M ou W doit être fluide et rythmé, transformant la préparation en méditation active. La patience et la précision requises pour son utilisation enseignent l'art de ralentir et de savourer l'instant présent."
-            },
-            kusenaoshi: {
-                title: "Kusenaoshi - Le gardien de forme",
-                image: "Kusenaoshi.png",
-                description: "Le kusenaoshi protège la forme délicate du chasen entre les utilisations. Ce petit support en bambou ou en céramique symbolise l'importance du repos et de la préservation. Il nous rappelle que même les outils les plus précieux ont besoin de moments de pause pour conserver leur intégrité et leur efficacité. C'est une leçon de vie appliquée aux objets du quotidien."
-            },
-            furui: {
-                title: "Furui - Le tamis purificateur",
-                image: "Furui.png",
-                description: "Le furui transforme la poudre de matcha en nuage aérien, éliminant les grumeaux et révélant la texture soyeuse du thé. Ce geste de tamisage, hérité des pratiques zen, purifie non seulement le matcha mais aussi l'esprit de celui qui l'accomplit. Il invite à la concentration et à la pleine conscience, préparant l'âme autant que le thé à la cérémonie qui va suivre."
-            }
-        };
-
-        function openModal(ustensileId) {
-            const modal = document.getElementById('modalUstensile');
-            const data = ustensileData[ustensileId];
-            
-            document.getElementById('modalTitle').textContent = data.title;
-            document.getElementById('modalImage').src = data.image;
-            document.getElementById('modalDescription').textContent = data.description;
-            
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('modalUstensile').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            const modalUstensile = document.getElementById('modalUstensile');
-            
-            if (event.target === modalUstensile) {
-                closeModal();
-            }
-        }
-
-        // Add fade-in animation to sections
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialiser la page d'accueil
-            updateHomePageData();
-            
-            // Masquer les contrôles sur la page d'accueil
-            document.querySelector('.controls').style.display = 'none';
-            
-            const sections = document.querySelectorAll('.section');
-            sections.forEach((section, index) => {
-                setTimeout(() => {
-                    section.classList.add('fade-in');
-                }, index * 200);
+        // Gallery lightbox effect
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 9999;
+                    cursor: pointer;
+                `;
+                
+                const lightboxImg = document.createElement('img');
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightboxImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                    border-radius: 8px;
+                `;
+                
+                lightbox.appendChild(lightboxImg);
+                document.body.appendChild(lightbox);
+                
+                lightbox.addEventListener('click', () => {
+                    document.body.removeChild(lightbox);
+                });
             });
-
-            // Add gentle glow animation to the main title
-            document.querySelector('.titre-principal').classList.add('gentle-glow', 'fade-in-title');
-        });
-
-        // Smooth scrolling for section titles
-        document.querySelectorAll('.section-titre').forEach(title => {
-            title.addEventListener('click', function() {
-                this.parentElement.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Easter egg: Konami code for special animation
-        let konamiCode = [];
-        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up Up Down Down Left Right Left Right B A
-
-        document.addEventListener('keydown', function(e) {
-            konamiCode.push(e.keyCode);
-            if (konamiCode.length > konamiSequence.length) {
-                konamiCode.shift();
-            }
-            
-            if (konamiCode.length === konamiSequence.length && 
-                konamiCode.every((code, index) => code === konamiSequence[index])) {
-                // Special animation when Konami code is entered
-                document.body.style.animation = 'pulse 0.5s ease-in-out 3';
-                alert('🍵✨ Félicitations ! Vous avez découvert le secret du maître de thé ! ✨🍵');
-                konamiCode = [];
-            }
         });
     </script>
 </body>
